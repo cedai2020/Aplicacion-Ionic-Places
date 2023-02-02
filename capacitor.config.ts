@@ -1,8 +1,8 @@
 import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'io.ionic.starter',
-  appName: 'PrimerProyecto',
+  appId: 'com.hola.app',
+  appName: 'PlacesApp',
   webDir: 'www',
   bundledWebRuntime: false
 };

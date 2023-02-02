@@ -8,7 +8,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'places',
     pathMatch: 'full'
   },
   {
@@ -24,6 +24,10 @@ const routes: Routes = [
       }
     ]
   },
+  {
+    path: 'new-place',
+    loadChildren : () => import('./places/place-add/place-add.module').then(m => m.PlaceAddPageModule)
+  }
 ];
 
 @NgModule({

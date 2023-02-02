@@ -1,11 +1,22 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/places"></ion-back-button>
+    </ion-buttons>
     <ion-title>
-      Hola universo xd
+      Fotos desde JSONPlaceHolder
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-text>Mi primera aplicación</ion-text>
+  <ion-list>
+    <ion-card *ngFor="let photo of photos">
+      <img [src]="photo.thumbnailUrl">
+      <ion-card-content>
+        <p>{{photo.title}}</p>
+        <p>{{photo.albumId}}</p>
+      </ion-card-content>
+    </ion-card>
+  </ion-list>
 </ion-content>

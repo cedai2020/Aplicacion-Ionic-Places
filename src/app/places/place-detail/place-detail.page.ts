@@ -24,13 +24,27 @@ export class PlaceDetailPage implements OnInit {
     })
   }
 
-  deletePlace() {
+  async deletePlace() {
+   const alertElement = await this.alertCtrl.create({
+      header: 'Are you sure you want to delete?',
+      message: 'Be careful of what you delete',
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel'
+        },
+        {
+          text: 'Delete',
+          handler: () => {
+            this.placesService.deletePlace(this.place.id)
+            this.router.navigate(['/places'])
+          }
+        }
+      ]
+    });
 
+    await alertElement.present();
 
-
-
-    this.placesService.deletePlace(this.place.id)
-    this.router.navigate(['/places'])
   }
 
 }
