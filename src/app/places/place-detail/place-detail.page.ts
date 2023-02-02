@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from "@angular/router";
 import { Place } from '../place.model';
 import { PlacesService } from '../places.service';
+import { AlertController } from "@ionic/angular";
 
 @Component({
   selector: 'app-place-detail',
@@ -12,7 +13,7 @@ export class PlaceDetailPage implements OnInit {
 
   place!: Place;
 
-  constructor(private activatedRoute: ActivatedRoute, private placesService: PlacesService, private router: Router) { }
+  constructor(private activatedRoute: ActivatedRoute, private placesService: PlacesService, private router: Router, private alertCtrl: AlertController) { }
 
   ngOnInit() {
     this.activatedRoute.paramMap.subscribe(paramMap => {
@@ -24,6 +25,10 @@ export class PlaceDetailPage implements OnInit {
   }
 
   deletePlace() {
+
+
+
+
     this.placesService.deletePlace(this.place.id)
     this.router.navigate(['/places'])
   }
